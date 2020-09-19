@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B124A19-45B3-48C4-93BC-725F391DA55F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UserFeaturesLogic</RootNamespace>
+    <AssemblyName>UserFeaturesService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>..\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicFacebookFeatures\BasicFacebookFeatures.cs" />
+    <Compile Include="IteratorPosts\IAggregate.cs" />
+    <Compile Include="IteratorPosts\IIterator.cs" />
+    <Compile Include="IteratorPosts\Posts.cs" />
+    <Compile Include="NewUserObservable\INewUserObserver.cs" />
+    <Compile Include="NewUserObservable\NewUser.cs" />
+    <Compile Include="StrategyPostFinder\SortPostsByDate.cs" />
+    <Compile Include="StrategyPostFinder\IPostSorter.cs" />
+    <Compile Include="StrategyPostFinder\SortPostsByComments.cs" />
+    <Compile Include="StrategyPostFinder\SortPostsByLikes.cs" />
+    <Compile Include="Types\eGenders.cs" />
+    <Compile Include="Types\eMonths.cs" />
+    <Compile Include="Types\eZodiacSigns.cs" />
+    <Compile Include="PostFinder\IPostFinder.cs" />
+    <Compile Include="LogicOpaqueFacade\LogicOpaqueFacade.cs" />
+    <Compile Include="PostFinder\PostFinder.cs" />
+    <Compile Include="PostFinder\PostFinderCacheProxy.cs" />
+    <Compile Include="StarSignFinder\StarSignFinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StarSignFinder\StarSignCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
